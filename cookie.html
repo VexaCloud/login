@@ -2,27 +2,22 @@
 <script>
 (function() {
     'use strict';
-
     const cookieName = 'authuser_is_success';
     const allowedOrigins = [
         'https://vexacloud.github.io'
     ];
-
     function hasCookie(name) {
         return document.cookie.split(';').some(cookie =>
             cookie.trim().startsWith(name + '=')
         );
     }
-
     let topOrigin = null;
     try {
         topOrigin = window.top.location.origin;
     } catch (e) {
         topOrigin = null;
     }
-
     let isAllowed = false;
-
     if (hasCookie(cookieName) && topOrigin) {
         isAllowed = allowedOrigins.some(allowed => {
             try {
@@ -32,7 +27,6 @@
             }
         });
     }
-
     if (!isAllowed) {
         const blockHTML = `<!DOCTYPE html>
 <html>
@@ -54,13 +48,11 @@
     </div>
 </body>
 </html>`;
-
         document.documentElement.innerHTML = blockHTML;
         window.__sveltekit_1mwzs34 = null;
         window.stop();
         return;
     }
-
 })();
 </script>
 <html>
@@ -74,7 +66,7 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background-color: #0d1b2a;    
+      background-color: #0d1b2a;
       color: #ffffff;
       font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
@@ -85,22 +77,18 @@
       padding: 20px;
       box-sizing: border-box;
     }
-
     .container {
       max-width: 600px;
     }
-
     h1 {
       margin-bottom: 1.5rem;
       font-size: 1.8rem;
     }
-
     p {
       font-size: 1.1rem;
       line-height: 1.6;
       margin-bottom: 2.5rem;
     }
-
     #okButton {
       background-color: #4CAF50;
       color: white;
@@ -112,18 +100,15 @@
       transition: all 0.2s;
       min-width: 180px;
     }
-
     #okButton:hover:not(:disabled) {
       background-color: #45a049;
       transform: translateY(-1px);
     }
-
     #okButton:disabled {
       background-color: #2e7d32;
       opacity: 0.6;
       cursor: not-allowed;
     }
-
     .countdown {
       font-size: 1.3rem;
       margin-bottom: 1.5rem;
@@ -132,28 +117,25 @@
   </style>
 </head>
 <body>
-
   <div class="container">
     <h1>Warning!</h1>
-    
+   
     <div class="countdown" id="countdown">Please wait 15 seconds...</div>
-    
+   
     <p id="warningText">
       This software has ads that may be dangerous. Please do not click alow notifications, confirm you are not a robot, or download any file when on this proxy. To get rid of the ads, X out of them until one shows that is not in the way of the screen.
     </p>
-
     <button id="okButton" disabled>OK</button>
   </div>
 
   <script>
     const button = document.getElementById('okButton');
     const countdownElement = document.getElementById('countdown');
-    
+   
     let secondsLeft = 15;
-
     const timer = setInterval(() => {
       secondsLeft--;
-      
+     
       if (secondsLeft <= 0) {
         clearInterval(timer);
         button.disabled = false;
@@ -164,12 +146,16 @@
     }, 1000);
 
     button.addEventListener('click', () => {
+      document.cookie = 
+        "rel_allowed_key_apikey_177giiao3z4qloz41icb21z0oke=true;" +
+        " path=/;" +
+        " max-age=86400;" +     
+        " SameSite=Lax";
 
-      document.cookie = "rel_allowed_key_apikey_177giiao3z4qloz41icb21z0oke=true; path=/; SameSite=Lax";
-      
+      console.log("Cookie attempted — check devtools → Application → Cookies");
+
       window.location.href = "authuser=1.html";
     });
   </script>
-
 </body>
 </html>
