@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="https://vexacloud.github.io/images/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verification Pending</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+      color: #e0e7ff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 40px 30px;
+      background: rgba(20, 35, 60, 0.65);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(100, 150, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      max-width: 480px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2.1rem;
+      margin: 0 0 1.2rem 0;
+      color: #a5b4fc;
+      text-shadow: 0 2px 10px rgba(100, 140, 255, 0.4);
+    }
+    .status {
+      font-size: 1.25rem;
+      margin: 0 0 2.8rem 0;
+      opacity: 0.92;
+      line-height: 1.45;
+    }
+    .btn {
+      display: inline-block;
+      padding: 18px 56px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #22d3ee, #06b6d4);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 25px rgba(34, 211, 238, 0.45);
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 12px 40px rgba(34, 211, 238, 0.6);
+    }
+    .btn:active {
+      transform: translateY(1px);
+    }
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at center, rgba(34, 211, 238, 0.12) 0%, transparent 60%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.7;
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 1.9rem; }
+      .btn { padding: 16px 48px; font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="container">
+  <h1>You're Proxy Request is Pending!</h1>
+  <div class="status">
+    Your request has been submitted.<br>
+    Please confirm you entered the correct email. If you did not, admins will not be able to contact you and your request will not be approved!<br><br>
+    An admin will review your request. You can now return to the main page:
+  </div>
+  <a href="https://vexacloud.github.io" class="btn">
+    Go to Home Page
+  </a>
+</div>
+</body>
+</html>
