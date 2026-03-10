@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<script>
+(function() {
+    'use strict';
+
+    const cookieName = 'rel_allowed_key_apikey_177giiao3z4qloz41icb21z0oke';
+    const allowedOrigins = [
+        'https://vexacloud.github.io'
+    ];
+
+    function hasCookie(name) {
+        return document.cookie.split(';').some(cookie =>
+            cookie.trim().startsWith(name + '=')
+        );
+    }
+
+    let topOrigin = null;
+    try {
+        topOrigin = window.top.location.origin;
+    } catch (e) {
+        topOrigin = null;
+    }
+
+    let isAllowed = false;
+
+    if (hasCookie(cookieName) && topOrigin) {
+        isAllowed = allowedOrigins.some(allowed => {
+            try {
+                return topOrigin === new URL(allowed).origin;
+            } catch {
+                return false;
+            }
+        });
+    }
+
+    if (!isAllowed) {
+        const blockHTML = `<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="https://vexacloud.github.io/images/favicon.png">
+    <meta charset="utf-8">
+    <title>Access Blocked</title>
+    <style>
+        html, body {margin:0;padding:0;height:100%;overflow:hidden;background:#001f3f;color:#fff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;}
+        #block-screen {text-align:center;max-width:500px;}
+        #block-screen h1 {font-size:3rem;margin-bottom:30px;}
+        #block-screen p {font-size:1.4rem;margin:15px 0;}
+    </style>
+</head>
+<body>
+    <div id="block-screen">
+        <h1>ACCESS BLOCKED</h1>
+        <p>Attempted access not verified or embedded on unauthorized site.</p>
+    </div>
+</body>
+</html>`;
+
+        document.documentElement.innerHTML = blockHTML;
+        window.__sveltekit_1mwzs34 = null;
+        window.stop();
+        return;
+    }
+
+})();
+</script>
+
+<html>
+<head>
+    <title>VexaCloud | Search</title>
+    <link rel="stylesheet" href="https://vexacloud.github.io/iframe.css">
+    <link rel="icon" href="https://vexacloud.github.io/images/favicon.png">
+</head>
+<body>
+    <iframe src="https://search.orrysander.workers.dev/"/>
+</body>
+</html>
