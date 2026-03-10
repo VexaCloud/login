@@ -243,7 +243,7 @@
           .insert({
             id: user.id,
             email: email,
-            role: "user"   // default role; change as needed
+            role: "user"
           });
 
         if (profileError) {
@@ -331,7 +331,7 @@
 
         const redirectInfo = roleRedirects[role] || {
           cookie: "otheraccess",
-          url: "/deny.html"
+          url: "deny.html"
         };
 
         setTempCookie(redirectInfo.cookie, "true");
