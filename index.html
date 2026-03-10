@@ -325,13 +325,13 @@
         const role = profiles[0].role || "user";
 
         const roleRedirects = {
-          user:   { cookie: "useraccesspending",   url: "user.html" },
-          allowed: { cookie: "authuser_is_success", url: "cookie.html" }
+          user:   { cookie: "useraccesspending",   url: "https://vexacloud.github.io/login/user.html" },
+          allowed: { cookie: "authuser_is_success", url: "https://vexacloud.github.io/login/cookie.html" }
         };
 
         const redirectInfo = roleRedirects[role] || {
           cookie: "otheraccess",
-          url: "deny.html"
+          url: "https://vexacloud.github.io/login/deny.html"
         };
 
         setTempCookie(redirectInfo.cookie, "true");
