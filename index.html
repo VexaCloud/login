@@ -269,7 +269,7 @@
         setTempCookie("useraccess", "true");
         signupMsg.textContent = "Account created. Redirecting...";
         signupMsg.classList.add("success");
-        window.location.href = "https://vexacloud.github.io/access/user";
+        window.location.href = "https://vexacloud.github.io/login/user.html";
       } catch (err) {
         signupMsg.textContent = "Unexpected error: " + err.message;
         signupMsg.classList.add("error");
@@ -325,8 +325,8 @@
         const role = profiles[0].role || "user";
 
         const roleRedirects = {
-          user:   { cookie: "useraccesspending",   url: "/user.html" },
-          allowed: { cookie: "authuser_is_success", url: "/cookie.html" }
+          user:   { cookie: "useraccesspending",   url: "user.html" },
+          allowed: { cookie: "authuser_is_success", url: "cookie.html" }
         };
 
         const redirectInfo = roleRedirects[role] || {
